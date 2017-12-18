@@ -36,13 +36,16 @@ echo "$patheka"
 cd "$patheka" && mv * ..
 cd .. && ./configure
 gmake install 
-######################################################################
+
    if [ ! -d "/rezsystem/rezadmin" ];then
       mkdir /rezsystem/rezadmin  -p
       echo "path created"
       sed -i '2s/$/ export PATH=$PATH:\/rezsystem\/rezadmin/' /etc/bashrc
+      bash
    fi
-###################################################################### working on this
+      
+cd /rezsystem/rezadmin
+touch pgstop pgstart 
 
 su postgres << 'EOT'
   echo `whoami`
