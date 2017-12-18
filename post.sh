@@ -40,8 +40,7 @@ gmake install
    if [ ! -d "/rezsystem/rezadmin" ];then
       mkdir /rezsystem/rezadmin  -p
       echo "path created"
-      sed '2s/$/ export PATH=$PATH:/rezsystem/rezadmin/' /etc/bashrc
-
+      sed -i '2s/$/ export PATH=$PATH:\/rezsystem\/rezadmin/' /etc/bashrc
    fi
 ###################################################################### working on this
 
