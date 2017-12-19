@@ -40,10 +40,10 @@
    if [ ! -d "/rezsystem/rezadmin" ];then
       mkdir /rezsystem/rezadmin  -p
       echo "path created"
-      sed -i '2s/$/ export PATH=$PATH:\/rezsystem\/rezadmin/' /etc/bashrc
-      bash
    fi
       
+sed -i '2s/$/ export PATH=$PATH:\/rezsystem\/rezadmin/' /etc/bashrc
+bash
 cd /rezsystem/rezadmin/ && touch pgstop pgstart
 echo "pkill post*" > pgstop
 chown postgres.postgres pgstop
