@@ -36,7 +36,7 @@
 #cd "$patheka" && mv * ..
 #cd .. && ./configure
 #gmake install 
-
+#
    if [ ! -d "/rezsystem/rezadmin" ];then
       mkdir /rezsystem/rezadmin  -p
       echo "path created"
