@@ -12,10 +12,10 @@
 #           echo "New postgres User Created"
 #	fi
 #
-##   yum -y install zlib*
-##   yum -y install readline*
-##   yum -y install gcc*
-##   yum -y install tcl-devel
+#   yum -y install zlib*
+#   yum -y install readline*
+#   yum -y install gcc*
+#   yum -y install tcl-devel
 #   yum -y install make
 #   
 #   if [ ! -d "/usr/local/pgsql/data" ];then
@@ -37,30 +37,30 @@
 #cd .. && ./configure
 #gmake install 
 #
-   if [ ! -d "/rezsystem/rezadmin" ];then
-      mkdir /rezsystem/rezadmin  -p
-      echo "path created"
-   fi
-      
-sed -i '2s/$/ export PATH=$PATH:\/rezsystem\/rezadmin/' /etc/bashrc
-bash
-cd /rezsystem/rezadmin/ && touch pgstop pgstart
-echo "pkill post*" > pgstop
-chown postgres.postgres pgstop
-chmod u+x pgstop
+#   if [ ! -d "/rezsystem/rezadmin" ];then
+#      mkdir /rezsystem/rezadmin  -p
+#      echo "path created"
+#   fi
+#      
+#sed -i '2s/$/ export PATH=$PATH:\/rezsystem\/rezadmin/' /etc/bashrc
+#bash
+#cd /rezsystem/rezadmin/ && touch pgstop pgstart
+#echo "pkill post*" > pgstop
+#chown postgres.postgres pgstop
+#chmod u+x pgstop
+#
+#echo "nohup /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &" > pgstart
+#chown postgres.postgres pgstart
+#chmod u+x pgstart
+##########################################have to input details to pgstop start
 
-echo "nohup /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &" > pgstart
-chown postgres.postgres pgstart
-chmod u+x pgstart
-###########################################have to input details to pgstop start
-#
-#
-#su postgres << 'EOT'
-#  echo `whoami`
-#  /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
-#
-#EOT
-#
+
+su postgres << 'EOT'
+  echo `whoami`
+  /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
+
+EOT
+
 #echo `whoami`
 #
 #else
