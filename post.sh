@@ -51,7 +51,7 @@ chmod 700 pgstop
 
 echo "nohup /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &" > pgstart
 chown postgres.postgres pgstart
-chmod u+x pgstart
+chmod 700 pgstart
 #########################################have to input details to pgstop start
 
 
