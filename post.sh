@@ -31,7 +31,7 @@ echo "Untar $balla file.It takes some time"
 cd /usr/local/pgsql
 tar --checkpoint=.100  -xzf "$balla"
 echo " "
-patheka=$(find . -type d -iname "post*"| head -1 )
+patheka=$(find . -type d -iname "postgresql*"| head -1 )
 echo "$patheka"
 cd "$patheka" && mv * ..
 cd .. && ./configure
@@ -49,7 +49,7 @@ echo "pkill post*" > pgstop
 chown postgres.postgres pgstop
 chmod 700 pgstop
 
-echo "nohup /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &" > pgstart
+echo "nohup /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data & &>/dev/null" > pgstart
 chown postgres.postgres pgstart
 chmod 700 pgstart
 #########################################have to input details to pgstop start
@@ -57,11 +57,14 @@ chmod 700 pgstart
 
 su postgres << 'EOT'
   echo `whoami`
-  /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
+  /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data &>/dev/null
 
 EOT
 
 echo `whoami`
+
+sed -i '2s/$/ export PATH=$PATH:\/rezsystem\/rezadmin/' /etc/bashrc
+bash
 
 else
 
