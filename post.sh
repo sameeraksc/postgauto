@@ -24,7 +24,7 @@ if [ $USER == "root" ];then
       echo "path ownership created"
          
    fi
-
+yum install wget 
 wget -P /usr/local/pgsql $1
 balla=$(ls /usr/local/pgsql | grep post)
 echo "Untar $balla file.It takes some time"
